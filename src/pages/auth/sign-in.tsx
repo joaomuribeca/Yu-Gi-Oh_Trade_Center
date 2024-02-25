@@ -44,7 +44,13 @@ export function SignIn() {
 
       navigate('/', { replace: true })
     } catch (error) {
-      toast.error('Credenciais inválidas')
+      if (error.response.data.message === 'Incorrect password/email') {
+        toast.error('Credenciais inválidas')
+      } else {
+        toast.error(
+          'Ocorreu algum problema ao efetuar o login, tente novamente mais tarde.',
+        )
+      }
     }
   }
 

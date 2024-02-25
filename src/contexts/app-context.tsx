@@ -29,11 +29,13 @@ export interface GetRegisteredCardsParams {
 interface AppContextType {
   openTrades: GetOpenTradesResponse | null
   registeredCards: GetRegisteredCardsResponse | null
+  isLoadingOpenTrades: boolean
   isLoadingMyTrades: boolean
   getOpenTrades: (data: GetTradesParams) => Promise<void>
   getRegisteredCards: (data: GetRegisteredCardsParams) => Promise<void>
-  getMyTrades: () => Promise<Trade[]>
+  getMyTrades: () => Promise<Trade[] | null>
   getMyCards: () => Promise<CardType[]>
+  registerCardToUser: (cardIds: string[]) => Promise<void>
 }
 
 interface AppProviderProps {
@@ -47,9 +49,11 @@ export function AppProvider({ children }: AppProviderProps) {
   const [openTrades, setOpenTrades] = useState<TradesList | null>(null)
   const [registeredCards, setRegisteredCards] = useState<CardsList | null>(null)
   const [isLoadingMyTrades, setIsLoadingMyTrades] = useState(false)
+  const [isLoadingOpenTrades, setIsLoadingOpenTrades] = useState(false)
 
   const getOpenTrades = useCallback(async (data: GetTradesParams) => {
     const { rpp, page } = data
+    setIsLoadingOpenTrades(true)
 
     await api
       .get<GetOpenTradesResponse>(`/trades?rpp=${rpp}&page=${page}`)
@@ -58,6 +62,8 @@ export function AppProvider({ children }: AppProviderProps) {
 
         return response.data
       })
+
+    setIsLoadingOpenTrades(false)
   }, [])
 
   const getRegisteredCards = useCallback(
@@ -97,11 +103,10 @@ export function AppProvider({ children }: AppProviderProps) {
       )
 
       setIsLoadingMyTrades(false)
+
       return filteredData
     } else {
-      throw new Error(
-        'Houve um problema ao buscar as solicitações de troca do usuário',
-      )
+      return null
     }
   }, [user])
 
@@ -117,6 +122,24 @@ export function AppProvider({ children }: AppProviderProps) {
     return response.data
   }, [])
 
+  const registerCardToUser = useCallback(async (cardIds: string[]) => {
+    const token = localStorage.getItem('token')
+
+    await api
+      .post(
+        '/me/cards',
+        { cardIds },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      )
+      .then((response) => {
+        return response
+      })
+  }, [])
+
   useEffect(() => {
     getOpenTrades({ rpp: '10', page: '1' })
     getRegisteredCards({ rpp: '25', page: '1' })
@@ -128,10 +151,12 @@ export function AppProvider({ children }: AppProviderProps) {
         openTrades,
         registeredCards,
         isLoadingMyTrades,
+        isLoadingOpenTrades,
         getOpenTrades,
         getRegisteredCards,
         getMyTrades,
         getMyCards,
+        registerCardToUser,
       }}
     >
       {children}
