@@ -45,11 +45,12 @@ export function SignUp() {
         },
       })
     } catch (error) {
-      console.log(error.response.data.message)
       if (error.response.data.message === 'User already exists') {
         toast.error('Email já cadastrado.')
       } else {
-        toast.error('Ocorreu algum problema ao efetuar o cadastro.')
+        toast.error(
+          'Ocorreu algum problema ao efetuar o cadastro, tente novamente mais tarde.',
+        )
       }
     }
   }

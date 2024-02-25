@@ -18,7 +18,7 @@ export function RppFilter({
   handleChange,
 }: RppFilterProps) {
   return (
-    <div className="mb-6 flex w-full items-center justify-end gap-3 text-center text-sm text-muted-foreground">
+    <div className=" flex items-center justify-end gap-3 text-center text-sm text-muted-foreground">
       <span>Mostrar</span>
       <Select
         defaultValue={defaultValue}

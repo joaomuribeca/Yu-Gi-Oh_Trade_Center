@@ -1,11 +1,11 @@
-import { Card } from './card-types'
+import { CardType } from './card-types'
 
 export type TradeCard = {
   id: string
   cardId: string
   tradeId: string
   type: 'OFFERING' | 'RECEIVING'
-  card: Card
+  card: CardType
 }
 
 export type Trade = {
