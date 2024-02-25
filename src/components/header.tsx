@@ -30,7 +30,7 @@ export function Header() {
   }
 
   return (
-    <div className="border-b bg-header">
+    <div className="fixed z-10 w-full border-b bg-header">
       <div className="flex h-16 w-full items-center justify-between gap-6 px-6">
         <Button variant="link">
           <Link to="/">
