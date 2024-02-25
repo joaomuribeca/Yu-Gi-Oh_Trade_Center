@@ -18,8 +18,8 @@ const signInForm = z.object({
 type SignInForm = z.infer<typeof signInForm>
 
 export function SignIn() {
-  const { signIn, getProfile } = useContext(AuthContext)
   const navigate = useNavigate()
+  const { signIn, getProfile } = useContext(AuthContext)
   const [searchParams] = useSearchParams()
 
   const {

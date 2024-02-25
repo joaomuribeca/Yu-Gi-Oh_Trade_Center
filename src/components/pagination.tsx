@@ -14,15 +14,19 @@ export function Pagination({ page, setPage, more }: PaginationProps) {
       const NewPage = page - 1
       setPage(NewPage)
     }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }
 
   function handleNextPage() {
     const NewPage = page + 1
     setPage(NewPage)
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }
 
   return (
-    <div className="mt-8 flex items-center justify-end gap-3">
+    <div className="flex items-center justify-end gap-3">
       <Button
         onClick={handlePreviousPage}
         variant="outline"

@@ -13,7 +13,7 @@ export function YuGiOhCard({ src, className }: CardProps) {
       variant="ghost"
       className={cx(
         className,
-        'hover:scale-130 cursor-pointer p-0 transition duration-200 ease-in-out hover:-translate-y-1',
+        'hover:scale-130 z-0 cursor-pointer p-0 transition duration-200 ease-in-out hover:-translate-y-1',
       )}
       asChild
     >

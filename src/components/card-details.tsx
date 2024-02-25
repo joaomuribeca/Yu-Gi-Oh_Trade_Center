@@ -1,5 +1,8 @@
+import { useContext } from 'react'
+
 import { CardType } from '@/@types/card-types'
 import { TradeCard } from '@/@types/trade-types'
+import { AuthContext } from '@/contexts/auth-context'
 
 import { Button } from './ui/button'
 import {
@@ -23,9 +26,10 @@ export function CardDetails({
   card,
   tradeCard,
   isLoading,
-  isAuthenticated,
   handleRegisterCardToUser,
 }: CardDetails) {
+  const { isAuthenticated } = useContext(AuthContext)
+
   return (
     <DialogContent className="w-40 min-w-[40rem]">
       <div className="flex space-x-6">
