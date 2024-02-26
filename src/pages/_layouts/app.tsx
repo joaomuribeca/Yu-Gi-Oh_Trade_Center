@@ -13,14 +13,11 @@ export function AppLayout() {
         <Outlet />
       </div>
 
-      <footer className="flex h-40 w-full items-center justify-center gap-3 bg-header">
-        <img className="mr-5 w-[10rem]" src={whiteLogoImg} alt="" />
+      <footer className="flex h-40 w-full flex-wrap items-center justify-center gap-5 bg-header ">
+        <img className="w-[10rem]" src={whiteLogoImg} alt="" />
         <span className="text-sm text-white/65">
-          Produzido por João Muribeca
-        </span>
-        <span className="text-white/65">{'-'}</span>
-        <span className="text-sm text-white/65">
-          &copy; yu-gi-oh.trade.center - {new Date().getFullYear()}
+          Produzido por João Muribeca - &copy; yu-gi-oh.trade.center -{' '}
+          {new Date().getFullYear()}
         </span>
       </footer>
     </div>

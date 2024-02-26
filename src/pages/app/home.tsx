@@ -19,7 +19,7 @@ export function Home() {
   return (
     <>
       <Helmet title="Home" />
-      <div className="mt-4 flex items-center justify-center gap-8 px-10">
+      <div className="mt-4 flex flex-wrap items-center justify-evenly gap-8 px-10 ">
         <div className="flex flex-col items-start">
           <h1 className="text-5xl font-bold tracking-tight">
             Boas vindas ao Trade Center
@@ -29,7 +29,7 @@ export function Home() {
           </p>
         </div>
 
-        <img className="ml-52 w-[50rem]" src={homeImg} alt="" />
+        <img className="w-[50rem]" src={homeImg} alt="" />
       </div>
 
       <div className="mt-28 w-full px-10">
