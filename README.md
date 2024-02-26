@@ -23,9 +23,9 @@ Yu-Gi-Oh! Trade Center - É uma plataforma onde fãs de Yu-Gi-Oh podem obter car
 
 Esse projeto faz parte do teste técnico para a empresa INMETA.
 
-Os usuários que acessarem a plataforma terão acesso a
+Os usuários que acessarem a plataforma terão acesso a:
 - Cadastro e login permitindo o acesso as principais funcionalidades
-- Catálogo de mais de 100 cartas cadastradas, podendo adiciona-las ao seu inventário
+- Catálogo de mais de 100 cartas cadastradas, podendo adicioná-las ao seu inventário
 - Listagem de todas as trocas em aberto
 - Abertura e exclusão de solicitações de troca de cartas
 
