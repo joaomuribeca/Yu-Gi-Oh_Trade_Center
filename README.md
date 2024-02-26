@@ -19,7 +19,9 @@
 <h1 align="center">Yu-Gi-Oh! Trade Center</h1>
 
 # 💻 Sobre
-Yu-Gi-Oh! Trade Center - É uma plataforma onde fãs de Yu-Gi-Oh podem obter cartas e expandir os seus decks, além de permitir a troca de suas cartas por diversas outras cartas disponíveis no catálogo
+Yu-Gi-Oh! Trade Center - É uma plataforma onde fãs de Yu-Gi-Oh podem obter cartas e expandir os seus decks, além de permitir a troca de suas cartas por diversas outras cartas disponíveis no catálogo. 
+
+Esse projeto faz parte do teste técnico para a empresa INMETA.
 
 Os usuários que acessarem a plataforma terão acesso a
 - Cadastro e login permitindo o acesso as principais funcionalidades
